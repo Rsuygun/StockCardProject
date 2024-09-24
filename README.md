@@ -1,4 +1,4 @@
-# Stok Kartı - Yeterlilik Ölçme Çalışması
+# Stok Kartı Projesi
 
 Bu proje, bir işletmedeki stokların kimlik bilgilerinin oluşturulması, güncellenmesi, listelenmesi ve silinmesi işlemlerini gerçekleştirmek amacıyla geliştirilmiştir. Uygulama, Java (Version 1.8) programlama dili ile geliştirilmiş olup, Swing arayüz tasarım framework'ü kullanılarak masaüstü ortamında çalışacak şekilde tasarlanmıştır. Veritabanı olarak MySQL (Version 8) kullanılmıştır ve tercih edilen IDE Eclipse (Version 2022-09)'dir.
 
@@ -49,7 +49,7 @@ Kullanıcı arayüzünde, stok bilgilerini oluşturmak, güncellemek ve listelem
 
 1. *Projeyi klonlayın*:
     bash
-    git clone https://github.com/kullaniciadi/proje-adi.git
+    git clone (https://github.com/Rsuygun/StockCardProject)
     
 
 2. *MySQL Veritabanını Hazırlayın*:
@@ -61,10 +61,4 @@ Kullanıcı arayüzünde, stok bilgilerini oluşturmak, güncellemek ve listelem
 4. *Projenin Derlenmesi ve Çalıştırılması*:
     Eclipse IDE kullanarak projeyi açın ve çalıştırın.
 
-## Katkıda Bulunma
 
-Projeye katkıda bulunmak için lütfen önce bir issue açarak değişiklik yapmayı tartışın. Her türlü katkıya açığız!
-
-## Lisans
-
-Bu proje MIT Lisansı altında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasına bakın.
