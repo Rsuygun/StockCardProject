@@ -1,0 +1,80 @@
+package DAO;
+
+import Models.StockCard;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class StockCardDAO {
+	private Connection connection;
+	
+	public StockCardDAO(Connection connection) {
+        this.connection = connection;
+    }
+	
+	public void saveStockCard(StockCard stockCard) throws SQLException {
+        String query = "INSERT INTO stock (stockCode, stockName, stockType, Unit, Barcode, kdvType, Description, Date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setString(1, stockCard.getStockCode());
+        stmt.setString(2, stockCard.getStockName());
+        stmt.setInt(3, stockCard.getStockType());
+        stmt.setString(4, stockCard.getUnit());
+        stmt.setString(5, stockCard.getBarcode());
+        stmt.setDouble(6, stockCard.getKdvType());
+        stmt.setString(7, stockCard.getDescription());
+        stmt.setDate(8, new java.sql.Date(stockCard.getDate().getTime()));
+        stmt.executeUpdate();
+    }
+	
+	public List<StockCard> getStockCards() throws SQLException{
+		List<StockCard> stockCards = new ArrayList<>();
+		String query = "SELECT * FROM stock";
+		Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        
+        while (rs.next()) {
+            StockCard stockCard = new StockCard();
+            stockCard.setId(rs.getInt("id"));
+            stockCard.setStockCode(rs.getString("stockCode"));
+            stockCard.setStockCode(rs.getString("stockName"));
+            stockCard.setStockType(rs.getInt("stockType"));
+            stockCard.setUnit(rs.getString("Unit"));
+            stockCard.setBarcode(rs.getString("Barcode"));
+            stockCard.setKdvType(rs.getDouble("kdvType"));
+            stockCard.setDescription(rs.getString("Description"));
+            stockCard.setDate(rs.getDate("Date"));
+            stockCards.add(stockCard);
+        }
+
+        return stockCards;
+	}
+	
+	public List<StockCard> getAllStockCards() throws SQLException {
+	    List<StockCard> stockCards = new ArrayList<>();
+	    String query = "SELECT * FROM stock"; 
+	    try (Statement stmt = connection.createStatement();
+	         ResultSet rs = stmt.executeQuery(query)) {
+
+	        while (rs.next()) {
+	            StockCard stockCard = new StockCard();
+	            stockCard.setId(rs.getInt("id"));
+	            stockCard.setStockCode(rs.getString("stockCode"));  
+	            stockCard.setStockName(rs.getString("stockName"));  
+	            stockCard.setStockType(rs.getInt("stockType"));
+	            stockCard.setUnit(rs.getString("Unit"));
+	            stockCard.setBarcode(rs.getString("Barcode"));
+	            stockCard.setKdvType(rs.getDouble("kdvType"));
+	            stockCard.setDescription(rs.getString("Description"));
+	            stockCard.setDate(rs.getDate("Date"));
+	            stockCards.add(stockCard);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        throw e;  
+	    }
+	    
+	    return stockCards;
+	}
+}

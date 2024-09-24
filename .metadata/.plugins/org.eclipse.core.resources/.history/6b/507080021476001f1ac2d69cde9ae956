@@ -1,0 +1,169 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+import javax.swing.JFormattedTextField;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class StockCardGUI extends JFrame{
+
+	private JFrame frame;
+	private JTextField textStockCode;
+	private JLabel lblStockName;
+	private JTextField textStockName;
+	private JLabel lblStockType;
+	private JLabel lblBarcode;
+	private JLabel lblKdvType;
+	private JLabel lblDesc;
+	private JLabel lblDate;
+	private JTextField textBarcode;
+	private JComboBox comboBoxKdvType;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					StockCardGUI window = new StockCardGUI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public StockCardGUI() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setFont(new Font("Consolas", Font.PLAIN, 11));
+		frame.setBounds(100, 100, 724, 649);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblStockCode = new JLabel("Stok Kodu:");
+		lblStockCode.setFont(new Font("Consolas", Font.BOLD, 24));
+		lblStockCode.setBounds(10, 11, 130, 29);
+		frame.getContentPane().add(lblStockCode);
+		
+		textStockCode = new JTextField();
+		textStockCode.setFont(new Font("Consolas", Font.PLAIN, 11));
+		textStockCode.setBounds(144, 11, 146, 20);
+		frame.getContentPane().add(textStockCode);
+		textStockCode.setColumns(10);
+		
+		lblStockName = new JLabel("Stok Adı:");
+		lblStockName.setFont(new Font("Consolas", Font.BOLD, 24));
+		lblStockName.setBounds(10, 42, 130, 29);
+		frame.getContentPane().add(lblStockName);
+		
+		textStockName = new JTextField();
+		textStockName.setFont(new Font("Consolas", Font.PLAIN, 11));
+		textStockName.setColumns(10);
+		textStockName.setBounds(144, 42, 146, 20);
+		frame.getContentPane().add(textStockName);
+		
+		lblStockType = new JLabel("Stok Tipi:");
+		lblStockType.setFont(new Font("Consolas", Font.BOLD, 24));
+		lblStockType.setBounds(10, 82, 130, 29);
+		frame.getContentPane().add(lblStockType);
+		
+		JComboBox comboBoxStockType = new JComboBox();
+		comboBoxStockType.setFont(new Font("Consolas", Font.PLAIN, 11));
+		comboBoxStockType.setBounds(144, 82, 146, 20);
+		frame.getContentPane().add(comboBoxStockType);
+		
+		JLabel lblUnit = new JLabel("Birimi:");
+		lblUnit.setFont(new Font("Consolas", Font.BOLD, 24));
+		lblUnit.setBounds(10, 122, 130, 29);
+		frame.getContentPane().add(lblUnit);
+		
+		JComboBox comboBoxUnit = new JComboBox();
+		comboBoxUnit.setFont(new Font("Consolas", Font.PLAIN, 11));
+		comboBoxUnit.setBounds(144, 125, 146, 20);
+		frame.getContentPane().add(comboBoxUnit);
+		
+		lblBarcode = new JLabel("Barkodu:");
+		lblBarcode.setFont(new Font("Consolas", Font.BOLD, 24));
+		lblBarcode.setBounds(10, 162, 130, 29);
+		frame.getContentPane().add(lblBarcode);
+		
+		lblKdvType = new JLabel("KDV Tipi:");
+		lblKdvType.setFont(new Font("Consolas", Font.BOLD, 24));
+		lblKdvType.setBounds(10, 202, 130, 29);
+		frame.getContentPane().add(lblKdvType);
+		
+		lblDesc = new JLabel("Açıklama:");
+		lblDesc.setFont(new Font("Consolas", Font.BOLD, 24));
+		lblDesc.setBounds(10, 242, 130, 29);
+		frame.getContentPane().add(lblDesc);
+		
+		lblDate = new JLabel("Oluşturma Zamanı:");
+		lblDate.setFont(new Font("Consolas", Font.BOLD, 24));
+		lblDate.setBounds(10, 438, 229, 29);
+		frame.getContentPane().add(lblDate);
+		
+		textBarcode = new JTextField();
+		textBarcode.setFont(new Font("Consolas", Font.PLAIN, 11));
+		textBarcode.setColumns(10);
+		textBarcode.setBounds(144, 166, 146, 20);
+		frame.getContentPane().add(textBarcode);
+		
+		comboBoxKdvType = new JComboBox();
+		comboBoxKdvType.setFont(new Font("Consolas", Font.PLAIN, 11));
+		comboBoxKdvType.setBounds(144, 205, 146, 20);
+		frame.getContentPane().add(comboBoxKdvType);
+		
+		JTextArea textAreaDesc = new JTextArea();
+		textAreaDesc.setFont(new Font("Consolas", Font.PLAIN, 9));
+		textAreaDesc.setBounds(144, 249, 366, 165);
+		frame.getContentPane().add(textAreaDesc);
+		
+		JFormattedTextField formattedTextFieldDate = new JFormattedTextField();
+		formattedTextFieldDate.setFont(new Font("Consolas", Font.PLAIN, 11));
+		formattedTextFieldDate.setBounds(232, 442, 154, 20);
+		frame.getContentPane().add(formattedTextFieldDate);
+		
+		JButton btnSave = new JButton("KAYDET");
+		btnSave.setFont(new Font("Consolas", Font.BOLD, 16));
+		btnSave.setBounds(10, 557, 250, 42);
+		frame.getContentPane().add(btnSave);
+		
+		JButton btnList = new JButton("LİSTELE");
+		btnList.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				
+				StockCardListGUI stockCardListGUI = new StockCardListGUI();
+				stockCardListGUI.setVisible(true);
+			}
+		});
+		setVisible(true);
+		
+		btnList.setFont(new Font("Consolas", Font.BOLD, 16));
+		btnList.setBounds(448, 557, 250, 42);
+		frame.getContentPane().add(btnList);
+	}
+}

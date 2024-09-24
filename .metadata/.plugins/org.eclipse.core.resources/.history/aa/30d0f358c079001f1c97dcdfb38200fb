@@ -1,0 +1,79 @@
+package Models;
+
+import java.util.Date;
+
+public class StockCard {
+	private int id;
+	private String stockCode;
+	private String stockName;
+	private String stockType;
+	private int Unit;
+	private String Barcode;
+	private double kdvType;
+	private String Description;
+	private Date Date;
+	
+	//ID
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	//StockCode
+	public String getStockCode() {
+		return stockCode;
+	}
+	public void setStockCode(String stocekCode) {
+		this.stockCode = stocekCode;
+	}
+	
+	//StockName
+	public String getStockName() {
+		return stockName;
+	}
+	public void setStockName(String stockName) {
+		this.stockName = stockName;
+	}
+	
+	//StockType
+	public String getStockType() {
+		return stockType;
+	}
+	public void setStockType(String stockType) {
+		this.stockType = stockType;
+	}
+	
+	//Unit
+	public int getUnit() {
+		return Unit;
+	}
+	public void setUnit(int Unit) {
+		this.Unit = Unit;
+	}
+	
+	//Barcode
+	public String getBarcode() {
+		return Barcode;
+	}
+	public void setBarcode(String Barcode) {
+		this.Barcode = Barcode;
+	}
+	
+	//kdvTpye
+	public double getKdvType() {
+		return kdvType;
+	}
+	public void setKdvType(double kdvType) {
+		this.kdvType = kdvType;
+	}
+	
+	//Description
+	public String getDescription() {
+		return Description;
+	}
+	public void setDescription() {
+		this.Description = Description;
+	}
+}

@@ -1,0 +1,29 @@
+package Models;
+
+import java.util.Date;
+
+public class StockCard {
+	private int id;
+	private String stockCode;
+	private String stockName;
+	private String stockType;
+	private int Unit;
+	private String Barcode;
+	private double kdvType;
+	private String Description;
+	private Date Date;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getStockCode() {
+		return stockCode;
+	}
+	public void setStockCode(String stocekCode) {
+		this.stockCode = stocekCode;
+	}
+}

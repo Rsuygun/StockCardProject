@@ -1,0 +1,56 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import java.awt.Font;
+
+public class StockCardGUI {
+
+	private JFrame frame;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					StockCardGUI window = new StockCardGUI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public StockCardGUI() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 783, 544);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblStockCode = new JLabel("Stok Kodu:");
+		lblStockCode.setFont(new Font("Consolas", Font.BOLD, 24));
+		lblStockCode.setBounds(10, 11, 130, 29);
+		frame.getContentPane().add(lblStockCode);
+		
+		textField = new JTextField();
+		textField.setBounds(144, 11, 146, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+	}
+}

@@ -1,0 +1,11 @@
+package Services;
+
+import DAO.StockCardDAO;
+import Models.StockCard;
+
+import java.sql.*;
+import java.util.List;
+
+public class StockCardService {
+
+}

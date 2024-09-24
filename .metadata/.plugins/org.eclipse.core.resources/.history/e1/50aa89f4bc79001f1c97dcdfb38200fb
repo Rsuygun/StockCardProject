@@ -1,0 +1,8 @@
+package Controllers;
+
+import Models.Stock;
+import Models.StockDAO;
+
+public class StockController {
+
+}

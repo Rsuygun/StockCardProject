@@ -1,0 +1,6 @@
+package Models;
+
+import java.sql.*;
+
+public class StockDAO {
+}

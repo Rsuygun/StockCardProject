@@ -1,0 +1,125 @@
+package View;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.SwingConstants;
+
+import Services.StockCardService;
+
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Color;
+import java.sql.*;
+import DAO.*;
+
+public class StockCardListGUI extends JFrame{
+
+	private JFrame frame;
+	private JTable table;
+	private JTextField textSearch;
+	
+	private StockCardService stockCardService;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Connection connection = DatabaseConnection.getConnection();
+		            StockCardDAO stockCardDAO = new StockCardDAO(connection);
+		            StockCardService stockCardService = new StockCardService(stockCardDAO);
+		            StockCardListGUI stockCardListGUI = new StockCardListGUI(stockCardService);
+		            stockCardListGUI.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public StockCardListGUI(StockCardService stockCardService) {
+		this.stockCardService = stockCardService;
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 847, 666);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblListe = new JLabel("LİSTE");
+		lblListe.setHorizontalAlignment(SwingConstants.CENTER);
+		lblListe.setFont(new Font("Consolas", Font.BOLD, 30));
+		lblListe.setBounds(10, 11, 822, 29);
+		frame.getContentPane().add(lblListe);
+		
+		table = new JTable();
+		table.setFont(new Font("Consolas", Font.PLAIN, 12));
+		table.setBounds(20, 48, 798, 412);
+		frame.getContentPane().add(table);
+		
+		textSearch = new JTextField();
+		textSearch.setFont(new Font("Consolas", Font.PLAIN, 16));
+		textSearch.setBounds(30, 471, 230, 38);
+		frame.getContentPane().add(textSearch);
+		textSearch.setColumns(10);
+		
+		JButton btnSerach = new JButton("ARAMA");
+		btnSerach.setBackground(new Color(192, 192, 192));
+		btnSerach.setFont(new Font("Consolas", Font.BOLD, 16));
+		btnSerach.setBounds(281, 471, 233, 40);
+		frame.getContentPane().add(btnSerach);
+		
+		JButton btnSave = new JButton("KAYDET");
+		btnSave.setBackground(new Color(192, 192, 192));
+		btnSave.setFont(new Font("Consolas", Font.BOLD, 16));
+		btnSave.setBounds(10, 571, 250, 42);
+		frame.getContentPane().add(btnSave);
+		btnSave.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                StockCardGUI stockCardGUI = new StockCardGUI(stockCardService);
+                stockCardGUI.setVisible(true);
+                frame.dispose();
+			}
+		});
+		frame.setVisible(true);
+		
+		JButton btnDelete = new JButton("SİL");
+		btnDelete.setBackground(new Color(192, 192, 192));
+		btnDelete.setFont(new Font("Consolas", Font.BOLD, 16));
+		btnDelete.setBounds(287, 571, 250, 42);
+		frame.getContentPane().add(btnDelete);
+		
+		JButton btnUpdate = new JButton("GÜNCELLE");
+		btnUpdate.setBackground(new Color(192, 192, 192));
+		btnUpdate.setFont(new Font("Consolas", Font.BOLD, 16));
+		btnUpdate.setBounds(568, 571, 250, 42);
+		frame.getContentPane().add(btnUpdate);
+		
+		JButton btnCopy = new JButton("KOPYALA");
+		btnCopy.setFont(new Font("Consolas", Font.BOLD, 16));
+		btnCopy.setBackground(Color.LIGHT_GRAY);
+		btnCopy.setBounds(553, 471, 250, 42);
+		frame.getContentPane().add(btnCopy);
+	}
+	
+	public void showWindow() {
+		frame.setVisible(true);
+	}
+}

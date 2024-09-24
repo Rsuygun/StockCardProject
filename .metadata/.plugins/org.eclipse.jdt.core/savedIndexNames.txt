@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\Users\rsuyg\OneDrive\Masaüstü\Rsuygun\project\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3455615179.index
+3632090822.index
+2037357473.index

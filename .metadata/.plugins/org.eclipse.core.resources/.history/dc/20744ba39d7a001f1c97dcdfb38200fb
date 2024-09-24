@@ -1,0 +1,10 @@
+package Main;
+
+import View.StockCardGUI;
+import View.StockCardListGUI;
+
+public class Main {
+	public static void main(String[] args) {
+		new StockCardGUI();
+	}
+}

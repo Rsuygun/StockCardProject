@@ -1,0 +1,25 @@
+package Services;
+
+import DAO.StockCardDAO;
+import Models.StockCard;
+
+import java.sql.*;
+import java.util.List;
+
+public class StockCardService {
+	private StockCardDAO stockCardDAO;
+	
+	public StockCardService(StockCardDAO stockCardDAO) {
+        this.stockCardDAO = stockCardDAO;
+    }
+	
+	public void createStockCard(StockCard stockCard) throws SQLException {
+        stockCardDAO.saveStockCard(stockCard);
+    }
+	
+	public List<StockCard> getAllStockCards() throws SQLException {
+        return stockCardDAO.getStockCards();
+    }
+	
+	
+}

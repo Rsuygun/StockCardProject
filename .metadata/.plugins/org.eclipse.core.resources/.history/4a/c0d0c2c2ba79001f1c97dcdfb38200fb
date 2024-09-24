@@ -1,0 +1,13 @@
+package Models;
+
+public class Stock {
+	private int id;
+	private String stockCode;
+	private String stockName;
+	private int stockType;
+	private String Unit;
+	private String Barcode;
+	private double kdvType;
+	private String Description;
+	private String Date;
+}
