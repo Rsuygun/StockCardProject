@@ -61,6 +61,21 @@ The user interface includes various components for creating, updating, and listi
 4. *Build and Run the Project*:
     Open the project in Eclipse IDE and run it.
 
+## Installation Steps
+
+1. *Clone the project*:
+    ```bash
+    git clone (https://github.com/Rsuygun/StockCardProject)
+    ```
+
+2. *Prepare the MySQL Database*:
+   Create a database in MySQL and set up the structure according to the table mentioned above.
+
+3. *Configure the Database Connection*:
+   Adjust the database connection settings in the Java project to match your local database.
+
+4. *Build and Run the Project*:
+    Open the project in Eclipse IDE and run it.
 
 ---
 
